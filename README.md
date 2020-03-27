@@ -71,6 +71,13 @@ For some unknown reason canvas requires use of the [sync](https://github.com/Aut
 * [renderToBufferSync](./API.md#CanvasRenderService+renderToBufferSync) ('application/pdf' | 'image/svg+xml')
 * [renderToStream](./API.md#CanvasRenderService+renderToStream) ('application/pdf')
 
+Beside setting the mime type you must also invoke the constructor with the `type` parameter set  to `'svg'` (see the [API docs](https://github.com/SeanSobey/ChartjsNodeCanvas/blob/master/API.md#new-canvasrenderservicewidth-height-chartcallback-type-chartjsfactory)):
+
+```
+const canvasRenderService = new CanvasRenderService(width, height, (ChartJS) => { }, 'svg');
+const svg = canvasRenderService.renderToBufferSync(chart_config, 'image/svg+xml');
+```
+
 ## API
 
 See the [API docs](https://github.com/SeanSobey/ChartjsNodeCanvas/blob/master/API.md).
